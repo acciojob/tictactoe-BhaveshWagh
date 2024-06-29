@@ -31,7 +31,7 @@ function handleCellClick(event) {
 
     if (checkWin()) {
 		
-        message.textContent = `${currentPlayer}, congratulations you won!`;
+        message.textContent = `${currentPlayer == player1 ? "Player1": "Player2"}, congratulations you won!`;
         endGame();
     } else if (moves.every(move => move !== null)) {
         message.textContent = "It's a tie!";
