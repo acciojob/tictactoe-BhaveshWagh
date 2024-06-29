@@ -7,8 +7,8 @@ let player1, player2, currentPlayer, moves;
 submitButton.addEventListener('click', startGame);
 
 function startGame() {
-    player1 = document.getElementById('player-1').value || "Player 1";
-    player2 = document.getElementById('player-2').value || "Player 2";
+    player1 = document.getElementById('Player1').value || "Player 1";
+    player2 = document.getElementById('Player2').value || "Player 2";
     currentPlayer = player1;
     moves = Array(9).fill(null);
 
