@@ -26,17 +26,18 @@ function handleCellClick(event) {
     const cell = event.target;
     const index = cell.id - 1;
 
-    cell.textContent = currentPlayer === player1 ? 'x' : 'o';
+    cell.textContent = currentPlayer === player1 ? 'X' : 'O';
     moves[index] = currentPlayer;
 
     if (checkWin()) {
+		
         message.textContent = `${currentPlayer}, congratulations you won!`;
         endGame();
     } else if (moves.every(move => move !== null)) {
-        message.textContent = "It's a tie";
+        message.textContent = "It's a tie!";
     } else {
         currentPlayer = currentPlayer === player1 ? player2 : player1;
-        message.textContent = `${currentPlayer}, you're up`;
+        message.textContent = `${currentPlayer}, you're up!`;
     }
 }
 
