@@ -14,7 +14,7 @@ function startGame() {
 
     board.style.display = 'grid';
     document.querySelector('.player-inputs').style.display = 'none';
-    message.textContent = `${currentPlayer}, you're up!`;
+    message.textContent = `${currentPlayer == player1 ? "Player1" : "Player2"}, you're up`;
 
     document.querySelectorAll('.cell').forEach(cell => {
         cell.textContent = '';
@@ -26,18 +26,18 @@ function handleCellClick(event) {
     const cell = event.target;
     const index = cell.id - 1;
 
-    cell.textContent = currentPlayer === player1 ? 'X' : 'O';
+    cell.textContent = currentPlayer === player1 ? 'x' : 'o';
     moves[index] = currentPlayer;
 
     if (checkWin()) {
 		
-        message.textContent = `${currentPlayer == player1 ? "Player1": "Player2"}, congratulations you won!`;
+        message.textContent = `${currentPlayer == player1 ? "Player1" : "Player2"}, congratulations you won!`;
         endGame();
     } else if (moves.every(move => move !== null)) {
-        message.textContent = "It's a tie!";
+        message.textContent = "It's a tie";
     } else {
         currentPlayer = currentPlayer === player1 ? player2 : player1;
-        message.textContent = `${currentPlayer}, you're up!`;
+        message.textContent = `${currentPlayer == player1 ? "Player1" : "Player2"}, you're up`;
     }
 }
 
